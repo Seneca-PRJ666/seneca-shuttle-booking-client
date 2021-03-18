@@ -42,3 +42,26 @@
   padding:0em;
   align-items: center;
 }
+
+.Login{
+  font-size: 20px;
+}
+
+#idcss{
+  margin:200rem, 10rem
+}
+
+#black{
+  background-color: #fff;
+  color: #272727;
+  font-size: 17px;
+  border: 1.5px solid #272727; /*this will make border blackish grey*/
+  font-family: ltc-bodoni-175;
+  padding: 14px 39px;
+ 
+}
+
+#black:hover{
+  color: white; /*this will show text color white when hover the sign up*/
+    background-color:#272727; /*this will change background color to blackish grey when we place mouse hover*/
+}

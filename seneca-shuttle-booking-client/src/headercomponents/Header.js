@@ -4,11 +4,11 @@ export class Header extends Component {
 
 render(){
   return ( 
-    <div className="header">
-        <h3>
-            <h2> Seneca Shuttle</h2>
-            <h3>Login</h3>
-        </h3>
+    <div className="header" style = {{backgroundColor: 'red', padding: '0.1rem 5rem'}}>
+        
+            <h1> Seneca Shuttle</h1>
+            
+        
     </div>
   )
 }
