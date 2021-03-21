@@ -1,15 +1,75 @@
 import React,{Component} from 'react';
 import {Dropdown} from "react-bootstrap";
+import axios from 'axios';
+const url = 'https://glacial-springs-31009.herokuapp.com/schedule?from=newnham&to=king';
+
 export class Selection extends Component {
 
+    constructor(props){
+        super(props);
+        
+        
+        // this.fetchRoutes = this.fetchRoutes.bind(this);
+        this.getRoutes = this.getRoutes.bind(this);
+        
+        this.state={
+            routes: null
+          
+        };
+    
+    
+    }
+
+    
+    //     fetchRoutes = () => axios.get(url); 
+        
+    // getRoutes = () => async() => {  
+    //         console.log("async Called")
+    //         try {   
+    //              const { data } = await this.fetchRoutes();
+    //              console.log(data);
+    //              this.setState({ routes: data });
+                    
+    // } catch (error) {  
+    //       console.log(error.message); 
+
+    //         }
+        // };
+
+        
+    // fetchRoutes = () => axios.get(url);
+        
+    getRoutes=()=>{
+        axios.get(url)
+            .then(data => {
+                // this.setState({ routes: data });
+            return data.data.directRoutes;
+        })
+        .catch(function(err){
+            console.log(err);
+        })
+    };
+    
+            
+    
+
+      
     render(){
         return ( 
             
           <div className="container">
 
-            <div class="row" style = {{borderStyle: "solid", borderColor: 'red', padding: "0rem 2rem 2rem 6rem", fontWeight: 'bold'}} >
-              <div class="col-sm">
-                  <label >Depart from: </label>
+            <div className="row" style = {{borderStyle: "solid", borderColor: 'red', padding: "0rem 2rem 2rem 6rem", fontWeight: 'bold'}} >
+              <div className="col-sm">
+              
+              <div>
+                  <p>                 
+                       {this.getRoutes()}
+                  </p>
+
+              </div>
+                  <label >Depart from:  </label>
+                  
                   {/* <div class="dropdown">
                       <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Depart From
                       <span class="caret"></span></button>
@@ -29,7 +89,7 @@ export class Selection extends Component {
                   </select>
             
               </div>
-              <div class="col-sm">
+              <div className="col-sm">
                   <label>Arrive at: </label>
                   {/* <div class="dropdown">
                       <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Arrive At
@@ -77,6 +137,7 @@ export class Selection extends Component {
                 <tr>
                     <th>Depart at:</th>
                     <th>Arrive by:</th>
+                    
                     <th>Route:</th>
                     <th>Booking</th>
                 </tr>

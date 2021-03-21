@@ -36,24 +36,6 @@ handleSubmit = event =>{
 
 render(){
 
-  // const styles = {
-  //   padding: "5px 25px",
-  //   '& signin': {
-
-  //     backgroundColor: "#fff", 
-  //     color: "#272727",
-  //     fontSize: '17px' ,
-  //     border: "1.5px solid #272727", /*this will make border blackish grey*/
-      
-     
-  //   },
-  //   '& signin:hover': {
-  //     color: 'white', /*this will show text color white when hover the sign up*/
-  //     backgroundColor:"#272727" /*this will change background color to blackish grey when we place mouse hover*/
-  //   }
-
-
-  // };
 
 
   return ( 
@@ -74,6 +56,7 @@ render(){
             <Form.Control type="password" value={this.state.password} onChange={this.handleChange} placeholder="Enter Password"/>
         </Form.Group>
         <br></br>
+        
             {/* <div>
 
             <label>ID * </label>
