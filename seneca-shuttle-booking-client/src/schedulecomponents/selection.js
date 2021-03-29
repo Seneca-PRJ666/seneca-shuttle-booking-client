@@ -106,7 +106,7 @@ export class Selection extends Component {
 
                 <option value="King">King</option>
                 <option value="Markham">Markham</option>
-                <option selected value="Newnham">Newnham</option>
+                <option defaultValue ="Newnham">Newnham</option>
                 <option value="York">York</option>
                 </select>
 
@@ -134,25 +134,27 @@ export class Selection extends Component {
 
         <h2>Schedule</h2>
             <table  style = {{fontSize: "17px",backgroundColor: "#ffcccb",padding: '5rem 5rem', color: 'black', cursor: 'pointer', border: ' 2px  solid red'}}>
-                <tr>
-                    <th>Depart at:</th>
-                    <th>Arrive by:</th>
-                    
-                    <th>Route:</th>
-                    <th>Booking</th>
-                </tr>
-                <tr>
-                    <td>10 a.m.</td>
-                    <td>11 a.m.</td>
-                    <td>A</td>
-                    <td><button className="btn btn-success booking-button" type="button">Book Now</button></td>
-                </tr>
-                <tr>
-                    <td>11 a.m.</td>
-                    <td>12 p.m.</td>
-                    <td>B</td>
-                    <td><button className="btn btn-secondary booking-button" type="button" disabled>Unavailable</button></td>
-                </tr>
+               <tbody>
+                    <tr>
+                        <th>Depart at:</th>
+                        <th>Arrive by:</th>
+                        
+                        <th>Route:</th>
+                        <th>Booking</th>
+                    </tr>
+                    <tr>
+                        <td>10 a.m.</td>
+                        <td>11 a.m.</td>
+                        <td>A</td>
+                        <td><button className="btn btn-success booking-button" type="button">Book Now</button></td>
+                    </tr>
+                    <tr>
+                        <td>11 a.m.</td>
+                        <td>12 p.m.</td>
+                        <td>B</td>
+                        <td><button className="btn btn-secondary booking-button" type="button" disabled>Unavailable</button></td>
+                    </tr>
+                </tbody>
             </table>
     </div>
   
