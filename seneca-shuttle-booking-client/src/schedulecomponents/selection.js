@@ -8,8 +8,6 @@ export class Selection extends Component {
     constructor(props){
         super(props);
         
-        
-        // this.fetchRoutes = this.fetchRoutes.bind(this);
         this.getRoutes = this.getRoutes.bind(this);
         
         this.state={
@@ -17,32 +15,12 @@ export class Selection extends Component {
           
         };
     
-    
     }
 
-    
-    //     fetchRoutes = () => axios.get(url); 
-        
-    // getRoutes = () => async() => {  
-    //         console.log("async Called")
-    //         try {   
-    //              const { data } = await this.fetchRoutes();
-    //              console.log(data);
-    //              this.setState({ routes: data });
-                    
-    // } catch (error) {  
-    //       console.log(error.message); 
-
-    //         }
-        // };
-
-        
-    // fetchRoutes = () => axios.get(url);
-        
     getRoutes=()=>{
         axios.get(url)
             .then(data => {
-                // this.setState({ routes: data });
+           
             return data.data.directRoutes;
         })
         .catch(function(err){
@@ -50,10 +28,7 @@ export class Selection extends Component {
         })
     };
     
-            
-    
 
-      
     render(){
         return ( 
             
@@ -70,16 +45,6 @@ export class Selection extends Component {
               </div>
                   <label >Depart from:  </label>
                   
-                  {/* <div class="dropdown">
-                      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Depart From
-                      <span class="caret"></span></button>
-                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="#">King</a>
-                          <a class="dropdown-item" href="#">Markham</a>
-                          <a class="dropdown-item" href="#">Newnham</a>
-                          <a class="dropdown-item" href="#">York</a>
-                      </div>
-                  </div> */}
                   <select style = {{fontSize: "17px",backgroundColor: "#ffcccb", margin: '3rem 5rem 3rem 6rem', color: 'black', cursor: 'pointer', border: ' 2px  solid red'}}>
 
                       <option value="King">King</option>
@@ -91,16 +56,6 @@ export class Selection extends Component {
               </div>
               <div className="col-sm">
                   <label>Arrive at: </label>
-                  {/* <div class="dropdown">
-                      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Arrive At
-                      <span class="caret"></span></button>
-                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="#">King</a>
-                          <a class="dropdown-item" href="#">Markham</a>
-                          <a class="dropdown-item" href="#">Newnham</a>
-                          <a class="dropdown-item" href="#">York</a>
-                      </div>
-                  </div> */}
 
                 <select style = {{fontSize: "17px", backgroundColor: "#ffcccb", margin: '0rem 5rem 3rem 8rem', color: 'black', cursor: 'pointer', border: ' 2px  solid red'}}>
 
@@ -116,19 +71,6 @@ export class Selection extends Component {
 
               </div>
           </div>
-{/* 
-          <Dropdown>
-  <Dropdown.Toggle variant="success" id="dropdown-basic">
-    Dropdown Button
-  </Dropdown.Toggle>
-
-  <Dropdown.Menu>
-    <Dropdown.Item href="#/action-1">Action</Dropdown.Item><br></br>
-    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item><br></br>
-    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item><br></br>
-  </Dropdown.Menu>
-</Dropdown> */}
-       
     
     <div className="schedule"  style = {{borderStyle: "solid", borderColor: 'red', padding: "0rem 2rem 2rem 6rem", fontWeight: 'bold'}}>
 
