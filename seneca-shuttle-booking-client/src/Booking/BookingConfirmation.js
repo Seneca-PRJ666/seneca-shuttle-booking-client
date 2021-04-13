@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, {useEffect, useState} from "react";
 import {Link, useParams} from 'react-router-dom';
-
+import {Form,Col,Button, Spinner, Table} from "react-bootstrap";
 function BookingConfirmation() {
     const {id} = useParams();
     const url = 'http://localhost:8080/schedule/bookings';
@@ -12,7 +12,7 @@ function BookingConfirmation() {
         axios.post(url, {scheduleId: id})
             .then(response => {
                 setBooking(response.data.data);
-                console.log(booking);
+                // console.log(booking);
             })
             .catch(e => {
                 console.log(e);
@@ -21,7 +21,7 @@ function BookingConfirmation() {
 
     return (
         <div>
-            <table>
+            <Table striped bordered hover>
                 <thead>
                 <tr>
                     <th>Date</th>
@@ -42,10 +42,19 @@ function BookingConfirmation() {
                         <td>{booking.arrive}</td>
                         <td>{booking.route_name}</td>
                     </tr>
-                    ):(<h1>Loading...</h1>)
+                    ):( <Button variant="primary" disabled>
+                    <Spinner
+                      as="span"
+                      animation="grow"
+                      size="sm"
+                      role="status"
+                      aria-hidden="true"
+                    />
+                    Loading...
+                  </Button>)
                 }
                 </tbody>
-            </table>
+            </Table>
         </div>
     )
 

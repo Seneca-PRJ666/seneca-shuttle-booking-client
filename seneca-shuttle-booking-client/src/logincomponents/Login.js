@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import { withRouter} from 'react-router-dom';
-import {Form,Col,Button} from "react-bootstrap";
+import {Form,Col,Button, Row} from "react-bootstrap";
 import axios from 'axios';
 // import styled from 'styled-components';
 // const URL = 'https://glacial-springs-31009.herokuapp.com/users/login'
@@ -43,40 +43,59 @@ render(){
 
   return ( 
 
-    <div className="Login"  >
+    <div className="justify-content-center">
       <div style = {{borderStyle: "solid", borderColor: 'red', padding: "0rem 2rem 2rem 2rem",margin: "5rem 8rem", fontWeight: 'normal'}}>
-      <Form  onSubmit = {this.handleSubmit} >
+      <h3>Login</h3>
+      <br></br>
+      <Form onSubmit = {this.handleSubmit} >
+      
+          <Form.Group className="justify-content-center" as={Row} controlId="username" >
+             
+              <Form.Label column sm="2" >Username* </Form.Label>
+              <Col sm="5">
+              <Form.Control autoFocus type="text" value={this.state.username} onChange={(e) => this.setState({ username: e.target.value })} placeholder="Enter Username"/>
+              </Col>
+          </Form.Group>
+       
 
-        <h3>Login</h3>
-        <Form.Group controlId="username" style = {{margin: '2rem 5rem 2rem 6rem', color: 'black'}}>
-            <Form.Label style = {{margin: '3rem 0.9rem 0rem 0rem'}}>Username* </Form.Label>
-            <Form.Control autoFocus type="text" value={this.state.username} onChange={(e) => this.setState({ username: e.target.value })} placeholder="Enter Username"/>
-        </Form.Group>
-
-        <Form.Group controlId="password">
-            <Form.Label style = {{margin: '1rem 0rem 0rem 1rem', padding: '0rem 1rem 0rem 0rem'}}>Password* </Form.Label>
-            <Form.Control type="password" value={this.state.password} onChange={(e) => this.setState({ password: e.target.value })} placeholder="Enter Password"/>
-        </Form.Group>
+          <Form.Group className="justify-content-center" as={Row} controlId="password">
+              <Form.Label column sm="2" >Password* </Form.Label>
+              <Col sm="5" >
+              <Form.Control type="password" value={this.state.password} onChange={(e) => this.setState({ password: e.target.value })} placeholder="Enter Password"/>
+              </Col>
+          </Form.Group>
+       
         <br></br>
 
-            <div >
+            {/* <div >
               <input type="submit" value="Login" style = {{fontSize: "17px",backgroundColor: "#ffcccb", margin: '1rem 5rem 2rem 6rem', color: 'black', cursor: 'pointer', border: ' 2px  solid red'}}  />
-            </div>
+            </div> */}
             
-
+            <Button variant="success" type="submit" value = "Login">
+             Login
+            </Button>
 
         </Form>
 
         <Form onSubmit = {this.handleSubmit3}>     
-            <div >
+            {/* <div >
               <input type="submit" value="Forgot your password?"  style = {{fontSize: "17px",backgroundColor: "#ffcccb", margin: '1rem 5rem 2rem 6rem', color: 'black', cursor: 'pointer', border: ' 2px  solid red'}}  />
-            </div>
+            </div> */}
+
+            <br></br>
+            <Button variant="danger" type="submit" value = "Forgot your password?">
+            Forgot your password?
+            </Button>
         </Form> 
 
         <Form onSubmit = {this.handleSubmit2}>     
-            <div >
+            {/* <div >
               <input type="submit" value="Signup"  style = {{fontSize: "17px",backgroundColor: "#ffcccb", margin: '1rem 5rem 2rem 6rem', color: 'black', cursor: 'pointer', border: ' 2px  solid red'}}  />
-            </div>
+            </div> */}
+            <br></br>
+            <Button variant="primary" type="submit" value = "Signup">
+              Signup
+            </Button>
         </Form> 
 
         </div>
@@ -86,5 +105,3 @@ render(){
 }
 
 export default withRouter(Login);
-
-

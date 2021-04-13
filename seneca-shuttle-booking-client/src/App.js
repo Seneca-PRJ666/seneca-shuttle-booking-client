@@ -4,6 +4,8 @@ import BookingConfirmation from "./Booking/BookingConfirmation.js";
 import Login from './logincomponents/Login'
 import {Header} from './headercomponents/Header.js'
 import {Selection} from './schedulecomponents/Selection.js'
+import Signup from './Signupcomponent/Signup'
+import Forgotpass from './forgotpassword/Forgotpass'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 
 

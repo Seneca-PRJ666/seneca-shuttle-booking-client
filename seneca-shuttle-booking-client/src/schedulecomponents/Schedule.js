@@ -1,6 +1,7 @@
+
 import axios from "axios";
 import React from "react";
-import {Button} from "react-bootstrap";
+import {Table, Spinner, Button} from "react-bootstrap";
 import {Link} from 'react-router-dom';
 import BookingConfirmation from "../Booking/BookingConfirmation.js";
 
@@ -10,12 +11,29 @@ const url = 'http://localhost:8080/schedule?'
 export default class Schedule extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {routes: []};
+        this.state = {
+            routes: [],
+        };
         this.handleClick=this.handleClick.bind(this);
     }
 
     componentDidMount() {
-        axios.get(url + `from=${this.props.from}&to=${this.props.to}&date=${this.props.date}`)
+        console.log(this.props);
+        this.fetchData()
+    }
+
+    componentDidUpdate(prevProps){
+        // console.log({new: this.props.from, prev: prevProps.from})
+        console.log(this.props);
+        if(this.props.from !== prevProps.from ||this.props.to !==prevProps.to || this.props.date !==prevProps.date)
+        {
+            this.fetchData()
+        }
+    }
+
+    fetchData(){
+        const constructed_url= `${url}from=${this.props.from.toLowerCase()}&to=${this.props.to.toLowerCase()}&date=${this.props.date}`
+        axios.get(constructed_url)
             .then(response => {
                 this.setState({routes: response.data});
             })
@@ -37,9 +55,10 @@ export default class Schedule extends React.Component {
     }
 
     render() {
+        {console.log(`Schedule component rendered`)}
         return (
             <div>
-                <table>
+                <Table striped bordered hover>
                     <thead>
                         <tr>
                             <th>Date</th>
@@ -51,7 +70,7 @@ export default class Schedule extends React.Component {
                     </thead>
                     <tbody>
                     {
-                        this.state.routes.map((route) => {
+                        this.state.routes.length > 0 ? (this.state.routes.map((route) => {
                             return (
                                 <tr key={route._id}>
                                     <td>{this.formatTime(route.date)}</td>
@@ -62,10 +81,19 @@ export default class Schedule extends React.Component {
                                     <td><Link to={`/booking/${route._id}`}>Book</Link></td>
                                 </tr>
                             )
-                        })
+                        })): <Button variant="primary" disabled>
+                        <Spinner
+                          as="span"
+                          animation="grow"
+                          size="sm"
+                          role="status"
+                          aria-hidden="true"
+                        />
+                        No Data Found!
+                      </Button>
                     }
                     </tbody>
-                </table>
+                </Table>
             </div>
         )
     }

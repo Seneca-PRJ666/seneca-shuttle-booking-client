@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import { withRouter} from 'react-router-dom';
-import {Form} from "react-bootstrap";
+import {Form,Col,Button, Row} from "react-bootstrap";
 
 
 class Signup extends Component {
@@ -34,27 +34,34 @@ class Signup extends Component {
             <Form  onSubmit = {this.handleSubmit} >
       
               <h3>Signup</h3>
-              <Form.Group controlId="username" style = {{margin: '2rem 5rem 2rem 6rem', color: 'black'}}>
-                  <Form.Label style = {{margin: '3rem 0.9rem 0rem 0rem'}}>Username* </Form.Label>
-                  <Form.Control autoFocus type="text" value={this.state.username} onChange={(e) => this.setState({ username: e.target.value })} placeholder="Enter Username"/>
+              <br></br>
+              <Form.Group className="justify-content-center" as={Row} controlId="username" >
+                  <Form.Label column sm="1" >Username* </Form.Label>
+                  <Col sm="7">
+                    <Form.Control autoFocus type="text" value={this.state.username} onChange={(e) => this.setState({ username: e.target.value })} placeholder="Enter Username"/>
+                  </Col>
               </Form.Group>
-      
-              <Form.Group controlId="password">
-                  <Form.Label style = {{margin: '1rem 0rem 0rem 1rem', padding: '0rem 1rem 0rem 0rem'}}>Password* </Form.Label>
-                  <Form.Control type="password" value={this.state.password} onChange={(e) => this.setState({ password: e.target.value })} placeholder="Enter Password"/>
+              <br></br>
+              <Form.Group className="justify-content-center" as={Row}  controlId="password">
+                  <Form.Label column sm="1" >Password* </Form.Label>
+                  <Col sm="7">
+                    <Form.Control type="password" value={this.state.password} onChange={(e) => this.setState({ password: e.target.value })} placeholder="Enter Password"/>
+                  </Col>
               </Form.Group>
               <br></br>
 
-              <Form.Group controlId="confirmpassword">
-                  <Form.Label style = {{margin: '1rem 0rem 0rem 1rem', padding: '0rem 1rem 0rem 0rem'}}>Confirm Password* </Form.Label>
-                  <Form.Control type="password" value={this.state.password} onChange={(e) => this.setState({ password: e.target.value })} placeholder="Confirm Password"/>
+              <Form.Group  className="justify-content-center" as={Row} controlId="confirmpassword">
+                  <Form.Label column sm="1" >Confirm Password* </Form.Label>
+                  
+                  <Col sm="7">
+                    <Form.Control type="password" value={this.state.password} onChange={(e) => this.setState({ password: e.target.value })} placeholder="Confirm Password"/>
+                  </Col>
               </Form.Group>
               <br></br>
 
-                  <div >
-                    <input type="submit" value="Signup" style = {{fontSize: "17px",backgroundColor: "#ffcccb", margin: '1rem 5rem 2rem 6rem', color: 'black', cursor: 'pointer', border: ' 2px  solid red'}}  />
-                  </div>
-
+              <Button variant="primary" type="submit" value = "Signup">
+                Sign up
+              </Button>
     
               </Form>
       
