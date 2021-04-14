@@ -4,10 +4,11 @@ import {Link, useParams} from 'react-router-dom';
 import {Form,Col,Button, Spinner, Table} from "react-bootstrap";
 function BookingConfirmation() {
     const {id} = useParams();
-    const url = 'http://localhost:8080/schedule/bookings';
+    const url = 'http://glacial-springs-31009.herokuapp.com/schedule/bookings';
 
     const [booking, setBooking] = useState(null);
 
+    
     useEffect(async () => {
         axios.post(url, {scheduleId: id})
             .then(response => {

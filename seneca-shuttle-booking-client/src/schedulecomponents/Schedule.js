@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 import BookingConfirmation from "../Booking/BookingConfirmation.js";
 
 
-const url = 'http://localhost:8080/schedule?'
+const url = 'http://glacial-springs-31009.herokuapp.com/schedule?'
 
 export default class Schedule extends React.Component {
     constructor(props) {
@@ -78,7 +78,10 @@ export default class Schedule extends React.Component {
                                     <td>{route.arrive}</td>
                                     <td>{route.route_name}</td>
                                     <td>{route.available_seat}</td>
-                                    <td><Link to={`/booking/${route._id}`}>Book</Link></td>
+                                    <td><Link to={`/booking/${route._id}`} >
+                                        <Button variant="primary">Book
+                                        </Button>
+                                        </Link></td>
                                 </tr>
                             )
                         })): <Button variant="primary" disabled>
