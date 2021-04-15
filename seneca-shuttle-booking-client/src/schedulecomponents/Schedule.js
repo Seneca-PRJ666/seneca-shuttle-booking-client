@@ -4,7 +4,10 @@ import React from "react";
 import {Table, Spinner, Button} from "react-bootstrap";
 import {Link} from 'react-router-dom';
 import BookingConfirmation from "../Booking/BookingConfirmation.js";
+import styled, {keyframes, Keyframes} from 'styled-components';
+import {bounce, rollIn, zoomIn} from 'react-animations';
 
+const Bounce = styled.div`animation: 3s ${keyframes`${zoomIn}`}`;
 
 const url = 'http://glacial-springs-31009.herokuapp.com/schedule?'
 
@@ -57,6 +60,7 @@ export default class Schedule extends React.Component {
     render() {
         {console.log(`Schedule component rendered`)}
         return (
+            <Bounce>
             <div>
                 <Table striped bordered hover>
                     <thead>
@@ -98,6 +102,7 @@ export default class Schedule extends React.Component {
                     </tbody>
                 </Table>
             </div>
+            </Bounce>
         )
     }
 }

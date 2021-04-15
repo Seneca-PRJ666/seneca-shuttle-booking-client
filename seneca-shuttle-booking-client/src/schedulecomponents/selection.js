@@ -6,7 +6,10 @@ import {Form} from "react-bootstrap";
 // import axios from 'axios';
 import Schedule from "./Schedule.js";
 // import form from 'react';
+import styled, {keyframes, Keyframes} from 'styled-components';
+import {bounce, rollIn, zoomIn} from 'react-animations';
 
+const Bounce = styled.div`animation: 3s ${keyframes`${zoomIn}`}`;
 
 export class Selection extends React.Component {
 
@@ -38,7 +41,7 @@ export class Selection extends React.Component {
     render() {
         
         return (
-            
+            <Bounce>
             <div className="container">
                 <div className="row" style={{
                     borderStyle: "solid",
@@ -129,6 +132,7 @@ export class Selection extends React.Component {
 
                 {/* </div> */}
         </div>
+        </Bounce>
         )
     
     }

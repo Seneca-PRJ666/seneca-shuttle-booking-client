@@ -2,13 +2,18 @@ import axios from "axios";
 import React, {useEffect, useState} from "react";
 import {Link, useParams} from 'react-router-dom';
 import {Form,Col,Button, Spinner, Table} from "react-bootstrap";
+import styled, {keyframes, Keyframes} from 'styled-components';
+import {bounce, rollIn, zoomIn} from 'react-animations';
+
+const Bounce = styled.div`animation: 3s ${keyframes`${zoomIn}`}`;
+
 function BookingConfirmation() {
     const {id} = useParams();
     const url = 'http://glacial-springs-31009.herokuapp.com/schedule/bookings';
 
     const [booking, setBooking] = useState(null);
 
-    
+
     useEffect(async () => {
         axios.post(url, {scheduleId: id})
             .then(response => {
@@ -21,6 +26,7 @@ function BookingConfirmation() {
     }, [])
 
     return (
+        <Bounce>
         <div>
             <Table striped bordered hover>
                 <thead>
@@ -42,6 +48,9 @@ function BookingConfirmation() {
                         <td>{booking.start}</td>
                         <td>{booking.arrive}</td>
                         <td>{booking.route_name}</td>
+                        <Button variant="danger" type="submit" value = "Forgot your password?">
+                        Cancel
+                        </Button>
                     </tr>
                     ):( <Button variant="primary" disabled>
                     <Spinner
@@ -57,6 +66,7 @@ function BookingConfirmation() {
                 </tbody>
             </Table>
         </div>
+        </Bounce>
     )
 
 }

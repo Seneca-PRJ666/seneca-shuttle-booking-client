@@ -1,7 +1,10 @@
 import React,{Component} from 'react';
 import { withRouter} from 'react-router-dom';
 import {Form,Col,Button, Row} from "react-bootstrap";
+import styled, {keyframes, Keyframes} from 'styled-components';
+import {bounce, rollIn, zoomIn} from 'react-animations';
 
+const Bounce = styled.div`animation: 3s ${keyframes`${zoomIn}`}`;
 
 class Signup extends Component {
 
@@ -28,7 +31,7 @@ class Signup extends Component {
     render(){
 
         return ( 
-      
+          <Bounce>
           <div className="Signup"  >
             <div style = {{borderStyle: "solid", borderColor: 'red', padding: "0rem 2rem 2rem 6rem",margin: "5rem 8rem", fontWeight: 'normal'}}>
             <Form  onSubmit = {this.handleSubmit} >
@@ -67,6 +70,7 @@ class Signup extends Component {
       
               </div>
           </div>
+          </Bounce>
         )
       }
   

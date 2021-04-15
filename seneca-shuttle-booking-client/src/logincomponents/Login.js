@@ -5,6 +5,10 @@ import axios from 'axios';
 // import styled from 'styled-components';
 // const URL = 'https://glacial-springs-31009.herokuapp.com/users/login'
 // const URL = 'http://localhost:8080/users/login'
+import styled, {keyframes, Keyframes} from 'styled-components';
+import {bounce, rollIn, zoomIn} from 'react-animations';
+
+const Bounce = styled.div`animation: 3s ${keyframes`${zoomIn}`}`;
 
 class Login extends Component {
 
@@ -42,7 +46,7 @@ handleSubmit3 = event=>{
 render(){
 
   return ( 
-
+    <Bounce>
     <div className="justify-content-center">
       <div style = {{borderStyle: "solid", borderColor: 'red', padding: "0rem 2rem 2rem 2rem",margin: "5rem 8rem", fontWeight: 'normal'}}>
       <h3>Login</h3>
@@ -100,6 +104,7 @@ render(){
 
         </div>
     </div>
+    </Bounce>
   )
 }
 }
