@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import { withRouter} from 'react-router-dom';
+import { withRouter,Redirect} from 'react-router-dom';
 import {Form,Col,Button, Row} from "react-bootstrap";
 import axios from 'axios';
 // import styled from 'styled-components';
@@ -23,15 +23,33 @@ class Login extends Component {
      this.handleSubmit = this.handleSubmit.bind(this);
      this.handleSubmit2 = this.handleSubmit2.bind(this);
      this.handleSubmit3 = this.handleSubmit3.bind(this);
+   
 }
-
 
 handleSubmit = event =>{
     event.preventDefault();
-    axios.post("http://glacial-springs-31009.herokuapp.com/users/login",this.state);
-    // ---if(status)
-    this.props.history.push('/Selection');
+    console.log(this.state);
 
+    // let link = <Link to="/Selection" />
+    // axios.post("http://glacial-springs-31009.herokuapp.com/users/login",this.state)
+    axios.post("http://localhost:8080/users/login",this.state)
+    this.props.history.push('/Selection');
+    // console.log()
+    
+    // .then(function (response) {
+    //   console.log(response);
+    //   this.handleRedirect(response);
+    //   // this.props.history.push('/Selection');
+    //   // console.log(`this is .then method`)
+    
+    // })
+    // .catch(function (error) {
+    //   console.log(error);
+    //   console.log(`this is .catch `);
+    //   // this.props.history.push('/Selection');
+    // });
+
+   
 }
 
 handleSubmit2 = event=>{

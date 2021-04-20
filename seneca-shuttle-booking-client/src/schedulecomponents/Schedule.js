@@ -9,8 +9,8 @@ import {bounce, rollIn, zoomIn} from 'react-animations';
 
 const Bounce = styled.div`animation: 3s ${keyframes`${zoomIn}`}`;
 
-const url = 'http://glacial-springs-31009.herokuapp.com/schedule?'
-
+const url = 'http://localhost:8080/schedule?'
+// const url = 'http://glacial-springs-31009.herokuapp.com/schedule?'
 export default class Schedule extends React.Component {
     constructor(props) {
         super(props);

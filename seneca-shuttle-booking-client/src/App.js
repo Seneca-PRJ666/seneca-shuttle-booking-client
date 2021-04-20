@@ -16,9 +16,12 @@ class App extends Component {
         return (
             <BrowserRouter>
                 <div className="App">
+                   
                     <Header/>
+                    
                     {/* <Login/> */}
                     <Switch>
+                        
                         <Route path="/" component={Login} exact></Route>
                         <Route path='/Selection' component={Selection}></Route>
                         <Route path="/booking/:id" component={BookingConfirmation}></Route>

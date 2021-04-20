@@ -7,12 +7,31 @@ import {bounce, rollIn, zoomIn} from 'react-animations';
 
 const Bounce = styled.div`animation: 3s ${keyframes`${zoomIn}`}`;
 
-function BookingConfirmation() {
+function BookingConfirmation(props) {
     const {id} = useParams();
     const url = 'http://glacial-springs-31009.herokuapp.com/schedule/bookings';
 
     const [booking, setBooking] = useState(null);
 
+
+//    function handleSubmit(){
+     
+//         return ({
+//             <Link to='/Signup'><Link>
+//             })
+//      }   
+// function ProfileForm(props) {
+//     const history = useHistory();
+//     const onSubmit = (data, e) => {
+//        e.target.reset();
+//        history.push({
+//           pathname:  "/OnSubmit",
+//           state: {
+//             response: messageFromServer 
+//           } 
+//        });
+//     }
+//   }
 
     useEffect(async () => {
         axios.post(url, {scheduleId: id})
@@ -42,15 +61,13 @@ function BookingConfirmation() {
                 <tbody>
                 { booking?(
                     <tr key={booking._id}>
-                        <td>{booking.date}</td>
+                        <td>{new Date (booking.date).toDateString()}</td>
                         <td>{booking.from}</td>
                         <td>{booking.to}</td>
                         <td>{booking.start}</td>
                         <td>{booking.arrive}</td>
                         <td>{booking.route_name}</td>
-                        <Button variant="danger" type="submit" value = "Forgot your password?">
-                        Cancel
-                        </Button>
+                    
                     </tr>
                     ):( <Button variant="primary" disabled>
                     <Spinner
@@ -65,6 +82,11 @@ function BookingConfirmation() {
                 }
                 </tbody>
             </Table>
+                
+                <Link to ="/Selection" type="submit" value = "Forgot your password?">
+                <Button  variant="danger"> Cancel </Button>
+                </Link>
+                
         </div>
         </Bounce>
     )
